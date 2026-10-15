@@ -40,18 +40,18 @@ FinFuncion
 
 
 // Se creo una funcion para la clasificacion de notas
-Funcion texto <- clasificar(nota)
-	Definir texto Como Caracter
+Funcion texto1 <- clasificar(nota)
+	Definir texto1 Como Caracter
 	Si nota >= 90 Entonces
-		texto <- "Sobresaliente"
+		texto1 <- "Sobresaliente"
 	Sino
 		Si nota >= 76 Entonces
-			texto <- "Notable"
+			texto1 <- "Notable"
 		Sino
 			Si nota >= 61 Entonces
-				texto <- "Satisfactorio"
+				texto1 <- "Satisfactorio"
 			Sino
-				texto <- "Insuficiente"
+				texto1 <- "Insuficiente"
 			FinSi
 		FinSi
 	FinSi
@@ -114,6 +114,8 @@ SubProceso estadisticas(notas)
 	Escribir "Nota Menor: " menors
 FinSubProceso
 
+
+// Se realizo un SubProceso para la suma de puntos extras por notas individuales
 SubProceso puntosExtra(notas, extraDado)
 	Definir num Como Entero
 	Definir extra Como Real
@@ -141,9 +143,51 @@ SubProceso puntosExtra(notas, extraDado)
 		extraDado[num] <- Verdadero
 		Escribir "Nueva nota ", num, ": ", notas[num], " -> ", clasificar(notas[num])
 	FinSi
-	
 FinSubProceso
 
 Algoritmo notasGenerales
+	Definir notas Como Real
+	Definir extraDado, hayNotas Como Logico
+	Definir opcion Como Entero
+	Definir seguir Como Caracter
+	Dimension notas[5]
+	Dimension extraDado[5]
+	hayNotas <- Falso
+	seguir <- "si"
+	Mientras seguir = "si" Hacer
+		menu
+		Leer opcion
+		Segun opcion Hacer
+			1:
+				ingresarNotas(notas, extraDado, hayNotas)
+			2:
+				Si hayNotas Entonces
+					mostrarNotas(notas, extraDado)
+				Sino
+					Escribir "No ha ingresado notas"
+				FinSi
+			3:
+				Si hayNotas Entonces
+					estadisticas(notas)
+				Sino
+					Escribir "No ha ingresado notas"
+				FinSi
+			4:
+				Si hayNotas Entonces
+					puntosExtra(notas,extraDado)
+				Sino
+					Escribir "No ha ingresado notas"
+				FinSi
+			5:
+				seguir <- "no"
+			De Otro Modo:
+				Escribir "Opcion no valida"
+		FinSegun
+		Si opcion >= 1 Y opcion <= 4 Entonces
+			seguir <- pedirSiNo("¿Desea volver al menu?")
+		FinSi
+	FinMientras
+	Escribir "Hasta luego"
+	
 	
 FinAlgoritmo
