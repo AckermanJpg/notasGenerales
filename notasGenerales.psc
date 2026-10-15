@@ -106,12 +106,42 @@ SubProceso estadisticas(notas)
 			mayors <- notas[i]			
 		FinSi
 		Si notas[i] < menor Entonces
-			menor <- notas[i]
+			menors <- notas[i]
 		FinSi
 	FinPara
 	Escribir "Promedio: ", suma / 5
 	Escribir "Nota Mayor: " mayors
 	Escribir "Nota Menor: " menors
+FinSubProceso
+
+SubProceso puntosExtra(notas, extraDado)
+	Definir num Como Entero
+	Definir extra Como Real
+	Repetir
+		Escribir "¿A que nota le desea sumar puntos extra? (1 al 5)"
+		Leer num
+		Si num < 0 Y num > 5 Entonces
+			Escribir "Error! Ingresa una nota valida"
+		FinSi
+	Hasta Que num >= 1 Y num <= 5
+	Si extraDado[num] Entonces
+		Escribir "La nota ", num, " ya recibio puntos extra"
+	Sino
+		Repetir
+			Escribir "Puntos extra (0 a 10): "
+			Leer extra
+			Si extra < 0 O extra > 10 Entonces
+				Escribir "Error: los puntos extra van de 0 a 10"
+			FinSi
+		Hasta Que extra >= 0 Y extra <= 10
+		notas[num] <- notas[num] + extra
+		Si notas[num] > 100 Entonces
+			notas[num] <- 100
+		FinSi
+		extraDado[num] <- Verdadero
+		Escribir "Nueva nota ", num, ": ", notas[num], " -> ", clasificar(notas[num])
+	FinSi
+	
 FinSubProceso
 
 Algoritmo notasGenerales
