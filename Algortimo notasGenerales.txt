@@ -1,0 +1,47 @@
+Algortimo notasGenerales
+1. Inicio
+2. Mostrar el menu:
+    [1] Ingresar notas
+    [2] Ver promedio
+    [3] Ver nota mayor
+    [4] Salir
+3. Leer la opcion elegida
+4. Si la ocpion no es 1, 2, 3 o 4 mostrar "Opcion no valida"
+5. Si la opcion es 2, 3 o 4 mostrar mensaje "No ha ingresado notas"
+6. Volver al menu
+
+Opcion 1: Ingresar notas
+7. Repetir 5 veces
+    7.1 Solicitar la nota (0 a 100); si esta fuera del rango, mostrar error y pedir de nuevo
+    7.2 Si se ingresa texto, mostrar error y pedir de nuevo
+    7.3 Preguntar si el estudiante tiene puntos extra
+    7.4 Si tiene, solicitar los puntos (0 a 10) y sumarlos a la nota (la nota final no pasa de 100)
+    7.5 Clasificar la nota:
+        90 a 100 -> Sobresaliente
+        76 a 89 -> Notable
+        61 a 75 -> Satisfactorio
+        0 a 60 -> Insuficiente
+    7.6 Guardar la nota en la lista y mostrar su clasificacion
+7.7 Si las 5 notas son 0, preguntar si esta seguro de que son correctas
+7.8 Si la respuesta es no, volver al paso 7; si es si, continuar
+7.9 Marcar que ya hay notas guardadas y volver al paso 15
+
+Opcion 2: Promedio
+8. Si aun no hay notas guardadas, mostrar "No ha ingresado notas" y volver al paso 15
+9. Sumar las 5 notas y dividir entre 5
+10. Mostrar el promedio y volver al paso 15
+
+Opcion 3: Nota mayor
+11. Si aun no hay notas guardadas, mostrar "No ha ingresado notas" y volver al paso 15
+12. Recorrer la lista comparando y quedarse con la mayor
+13. Mostrar la nota mayor y volver al paso 15
+
+Opcion 4: Salir
+14. Ir al paso 17
+
+15. Preguntar "¿Deseas volver al menu? (si/no)" (validar si / no)
+16. Si la respuesta es si, volver al paso 2
+17. Si la respuesta es no, salir del programa
+18. Fin
+
+https://github.com/AckermanJpg/notasGenerales.git
